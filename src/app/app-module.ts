@@ -1,8 +1,11 @@
 import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
+import { FormsModule } from '@angular/forms';
+import { UserListComponent } from './components/user-list/user-list';
+import { provideHttpClient } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -10,11 +13,15 @@ import { App } from './app';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    UserListComponent   // Importación del componente UserListComponent
   ],
   providers: [
-    provideBrowserGlobalErrorListeners()
+    provideBrowserGlobalErrorListeners(),
+    provideHttpClient()
   ],
   bootstrap: [App]
 })
+
 export class AppModule { }
